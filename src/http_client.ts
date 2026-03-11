@@ -6,9 +6,11 @@ import { RequestModel, ResponseModel } from './models/request_model';
 // Sanitize URL - adds https:// if user forgets the protocol prefix
 function sanitizeUrl(url: string): string {
     if (!url) { return url; }
-    if (!url.includes('://') && url.length > 0) {
+
+    if (!url.includes('://')) {
         return 'https://' + url;
     }
+    
     return url;
 }
 
